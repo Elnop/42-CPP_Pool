@@ -1,7 +1,7 @@
 NAME =  materia
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+CFLAGS = -Wall -Wextra -Werror -std=c++98 # -g3
 
 INCLUDES = AMateria.h ICharacter.h Ice.h Cure.h Character.h \
 		MateriaSource.h ICharacter.h IMateriaSource.h
