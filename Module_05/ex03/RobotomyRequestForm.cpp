@@ -1,5 +1,5 @@
 #include "RobotomyRequestForm.h"
-
+#include <cstdlib>
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45, target) {}
@@ -15,7 +15,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &rhs) {
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	AForm::execute(executor);
-	if (this->getTarget().empty() || rand() % 2)
+	if (std::rand() % 2)
 		std::cout << "*drilling noises* " << this->getTarget() << " has been robotomized" << std::endl;
 	else
 		std::cout << "robotomize " << this->getTarget() << " failed" << std::endl;

@@ -1,5 +1,5 @@
 #include "RobotomyRequestForm.h"
-
+#include <cstdlib>
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45, target) {}
