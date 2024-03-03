@@ -1,4 +1,4 @@
-#include "Form.h"
+#include "Form.hpp"
 
 int main() {
 	std::cout << std::endl << "----- Constructors -----" << std::endl;
@@ -41,16 +41,9 @@ int main() {
 	}
 	std::cout << std::endl << "----- Be signed -----" << std::endl;
 	Bureaucrat b1("b1", 2);
-	std::cout << b1;
-	f2.beSigned(b1);
-	std::cout << f1;
-	try {
-		f1.beSigned(b1);
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << f2;
+	Bureaucrat b2("b2", 1);
+	b1.signForm(f1);
+	b2.signForm(f1);
 	std::cout << std::endl << "----- Destructors -----" << std::endl;
 	return 0;
 }

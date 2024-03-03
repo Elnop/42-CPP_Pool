@@ -3,7 +3,7 @@ NAME = Bureaucrat
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 # -g3
 
-INCLUDES = Bureaucrat.h Form.h
+INCLUDES = Bureaucrat.hpp Form.hpp
 
 FILES = main Bureaucrat Form
 

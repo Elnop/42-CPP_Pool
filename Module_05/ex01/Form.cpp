@@ -1,4 +1,4 @@
-#include "Form.h"
+#include "Form.hpp"
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
 	std::cout << "Form constructor called" << std::endl;
@@ -38,10 +38,11 @@ int Form::getGradeToExecute() const {
 	return this->gradeToExecute;
 }
 
-void Form::beSigned(const Bureaucrat& rhs) {
+void Form::beSigned(const Bureaucrat &rhs) {
 	if (rhs.getGrade() > this->gradeToSign)
 		throw Form::GradeTooLowException();
 	this->isSigned = true;
+	this->name + " has been signed by " + rhs.getName();
 }
 
 std::ostream& operator<<( std::ostream& o, const Form& rhs) {
