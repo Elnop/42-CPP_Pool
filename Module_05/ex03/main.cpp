@@ -4,7 +4,7 @@ int main() {
 	Intern tiananas;
 	AForm* idable;
 	idable = tiananas.makeForm("robotomy request", "Bender");
-	std::cout << *idable << std::endl;
+	std::cout << *idable;
 	delete idable;
 	return 0;
 }

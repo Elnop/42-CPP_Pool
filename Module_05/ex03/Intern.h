@@ -9,7 +9,9 @@ class Intern {
 		Intern(const Intern& other);
 		~Intern();
 		Intern& operator=(const Intern& other);
-
+		AForm* makeRobotomyRequestForm(std::string target);
+		AForm* makePresidentialPardonForm(std::string target);
+		AForm* makeShrubberyCreationForm(std::string target);
 		AForm* makeForm(std::string formName, std::string target);
 		class InvalidFormNameException : public std::exception {
 			public:
