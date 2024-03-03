@@ -48,3 +48,11 @@ std::ostream& operator<<( std::ostream& o, const Form& rhs) {
 	o << rhs.getName() << ", form grade to sign " << rhs.getGradeToSign() << ", form grade to execute " << rhs.getGradeToExecute() << ", is signed " << rhs.getIsSigned() << std::endl;
 	return o;
 }
+
+const char* Form::GradeTooHighException::what() const throw() {
+	return "Grade too high";
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+	return "Grade too low";
+}

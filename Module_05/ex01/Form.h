@@ -21,14 +21,13 @@ class Form {
 		int getGradeToExecute() const;
 		void beSigned(const Bureaucrat& rhs);
 
-		/* ---------------- Exception Classes ---------------- */
 		class GradeTooHighException : public std::exception {
 			public:
-				virtual const char* what() const throw() { return "Grade too high"; }
+				virtual const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception {
 			public:
-				virtual const char* what() const throw() { return "Grade too low"; }
+				virtual const char* what() const throw();
 		};
 };
 

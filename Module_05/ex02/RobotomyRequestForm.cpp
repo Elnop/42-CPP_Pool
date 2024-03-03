@@ -15,7 +15,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &rhs) {
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	AForm::execute(executor);
-	if (this->getTarget().empty() || rand() % 2)
+	if (rand() % 2)
 		std::cout << "*drilling noises* " << this->getTarget() << " has been robotomized" << std::endl;
 	else
 		std::cout << "robotomize " << this->getTarget() << " failed" << std::endl;

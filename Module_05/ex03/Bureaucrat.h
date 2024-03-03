@@ -31,7 +31,6 @@ class Bureaucrat {
 		};
 };
 
-// surcharge ostream to print bureaucrat
 std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs);
 
 #endif
