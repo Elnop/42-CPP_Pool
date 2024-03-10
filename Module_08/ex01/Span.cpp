@@ -42,3 +42,8 @@ void Span::addNumber(int n) {
 		throw FullException();
 	_vec.push_back(n);
 }
+
+void Span::addNumberRange(unsigned int n) {
+	for (unsigned int i = 0; i < n; i++)
+		this->addNumber(i);
+}

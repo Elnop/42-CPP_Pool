@@ -10,6 +10,7 @@ class Span {
 		Span &operator=(const Span &copy);
 		~Span();
 		void addNumber(int n);
+		void addNumberRange(unsigned int n);
 		int shortestSpan();
 		int longestSpan();
 		class FullException : public std::exception {

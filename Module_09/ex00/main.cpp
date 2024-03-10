@@ -35,17 +35,17 @@ void do_queries(const char *filename, std::map<std::string, float> &db) {
 	{
 		if (row.find(" ") == std::string::npos)
 			continue ;
-		std::string date_str = row.substr(0, row.find(" "));
-		if (date_str.empty() ||  date_str == "date")
+		std::string date_input = row.substr(0, row.find(" "));
+		if (date_input.empty() ||  date_input == "date")
 			continue ;
 		std::string count_str = row.substr(row.find(" | ")+3, row.length()-1);
-		if (date_str.empty() || count_str.empty())
+		if (date_input.empty() || count_str.empty())
 		{
 			std::cerr << "Error: invalid row";
 			continue ;
 		}
 		// CHECK DATE
-		if(date_str < "2001-42-42")
+		if(date_input < "2001-42-42")
 		{
 			std::cerr << "Error: bad input => 2001-42-42\n";
 			continue ;
@@ -59,15 +59,14 @@ void do_queries(const char *filename, std::map<std::string, float> &db) {
 		}
 		if (count < 0)
 		{
-			std::cerr << "Error: too low a number.\n";
+			std::cerr << "Error: not a positive number.\n";
 			continue;
 		}
-		std::string	date_max = date_str;
-		float	price;	
-		for (std::map<std::string, float>::iterator it = db.begin(); it != db.end() && it->first <= date_max; it++)
+		float	price;
+		for (std::map<std::string, float>::iterator it = db.begin(); it != db.end() && it->first < date_input; it++)
 			price=it->second;
 		float result = price * count;
-		std::cout << date_str << " => " << std::setprecision(2) << count << " = " << result << std::endl;
+		std::cout << date_input << " => " << std::setprecision(2) << count << " = " << result << std::endl;
 	}
 }
 
@@ -79,8 +78,7 @@ int main(int argc, const char** argv)
 		std::cerr << "./btc <filename>\n";
 		return 1;
 	}
-	std::map<std::string, float> db;
-	// map<date, count>
+	std::map<std::string, float> db; // map<date, count>
 	if(!file_to_db(db))
 		return 1;
 	do_queries(argv[1], db);
