@@ -13,7 +13,6 @@ int main (int ac, const char **av)
     for (unsigned long i=0; av[1][i]; i++)
     {
         char arg = av[1][i];
-        std::cout << "test : " << arg << std::endl;
         if (arg == ' ')
             continue;
         if (arg >= '0' && arg <= '9')
@@ -23,7 +22,7 @@ int main (int ac, const char **av)
         }
         if (queue.size() < 2)
         {
-            std::cerr << "Invalid RPN" << std::endl;
+            std::cerr << "Error : number needed" << std::endl;
             return 1;
         }
         double a = queue.top();
@@ -45,7 +44,7 @@ int main (int ac, const char **av)
                 queue.push(b / a);
                 break;
             default:
-                std::cerr << "Invalid RPN" << std::endl;
+                std::cerr << "Error : invlid character" << std::endl;
                 return 1;
         }
     }
