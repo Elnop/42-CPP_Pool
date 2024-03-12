@@ -20,16 +20,15 @@ public:
 private:
     static void sort(T &c)
 	{
-		if (!c.empty()) {
-			fordJohnsonMergeInsertionSort(c, 0, c.size() - 1);
-		}
+		if (!c.empty()) 
+			ford_johnson(c, 0, c.size() - 1);
 	}
     static void print(T &container) {
         for (typename T::iterator it = container.begin(); it != container.end(); it++) {
             std::cout << *it << " ";
         }
     }
-	static void fordJohnsonMergeInsertionSort(T &c, int start, int end)
+	static void ford_johnson(T &c, int start, int end)
 	{
 		if (start >= end) return;
 		if (end - start == 1) {
@@ -50,8 +49,8 @@ private:
 		}
 		int medianOfMedians = selectMedian(c, medians);
 		int mid = partition(c, start, end, medianOfMedians);
-		fordJohnsonMergeInsertionSort(c, start, mid - 1);
-		fordJohnsonMergeInsertionSort(c, mid, end);
+		ford_johnson(c, start, mid - 1);
+		ford_johnson(c, mid, end);
 	}
 	static int partition(T &c, int start, int end, int pivotIndex) {
 		std::swap(c[pivotIndex], c[end]);
