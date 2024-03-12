@@ -3,7 +3,7 @@
 
 int main (int ac, const char **av)
 {
-    if (ac < 2)
+    if (ac != 2)
     {
         std::cerr << "Usage: ./RPN \"<Reverse Polish Notation>\"" << std::endl;
         return 1;
